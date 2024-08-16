@@ -13,8 +13,9 @@ import {
   DrawerOverlay,
   DrawerContent,
   Flex,
+  useColorMode,
 } from '@chakra-ui/react';
-import { HamburgerIcon, CloseIcon } from '@chakra-ui/icons';
+import { HamburgerIcon, CloseIcon, SunIcon, MoonIcon } from '@chakra-ui/icons';
 import { FaUser, FaCog } from 'react-icons/fa'; // Use 'react-icons/fa' for these icons
 
 // Define the navigation items
@@ -33,6 +34,14 @@ const profileSettingsItems = [
 const Sidebar = () => {
   const { isOpen, onToggle, onClose } = useDisclosure();
   const isDesktop = useBreakpointValue({ base: false, md: true });
+  const { colorMode, toggleColorMode } = useColorMode();
+  
+  // Determine icon based on color mode
+  const icon = colorMode === 'light' ? <MoonIcon /> : <SunIcon />;
+
+  const handleToggle = () => {
+    toggleColorMode();
+  };
 
   return (
     <>
@@ -44,10 +53,8 @@ const Sidebar = () => {
             icon={<HamburgerIcon />}
             onClick={onToggle}
             display={{ base: 'block', md: 'none' }} // Show this button on mobile
-            // position="fixed"
             top={4}
             left={4}
-           
           />
           <Drawer isOpen={isOpen} onClose={onClose} placement="left">
             <DrawerOverlay>
@@ -74,6 +81,11 @@ const Sidebar = () => {
                         <Box as="span" fontSize="lg">{item.icon}</Box>
                       </HStack>
                     ))}
+                    <IconButton
+                      aria-label="Toggle Color Mode"
+                      icon={icon}
+                      onClick={handleToggle}
+                    />
                   </VStack>
                 </DrawerBody>
               </DrawerContent>
@@ -91,11 +103,9 @@ const Sidebar = () => {
           alignItems="center"
           justifyContent="space-between"
           boxShadow="md"
-        //   position="fixed"
           top={0}
           left={0}
           w="100%"
-          
         >
           <Text fontSize="lg" fontWeight="bold" ml={4}>
             Modal.Js
@@ -120,6 +130,11 @@ const Sidebar = () => {
                   {item.icon}
                 </Box>
               ))}
+              <IconButton
+                aria-label="Toggle Color Mode"
+                icon={icon}
+                onClick={handleToggle}
+              />
             </HStack>
           </Flex>
         </Box>
@@ -129,9 +144,3 @@ const Sidebar = () => {
 };
 
 export default Sidebar;
-// const Sidebar=()=>{
-//     return(
-//  <>hi sidebar</> 
-//     )
-// }
-// export default Sidebar;

@@ -29,13 +29,10 @@ const CameraControls = () => {
 const Index = () => {
   // Path to your GLB model
   const modelSrc = '/store.glb';
-
   return (
     <ChakraProvider>
-      <Box
-        
-        
-        width="98.5vw" // Full viewport width
+      <Box        
+       width="98.5vw" // Full viewport width
         height="85vh" // Full viewport height
         overflow="hidden" // Prevent scrollbars
       >
@@ -47,8 +44,7 @@ const Index = () => {
           onCreated={({ camera }) => {
             camera.lookAt(0, 0, 0); // Point the camera to the center of the scene
           }}
-          
-        >
+          >
           <ambientLight intensity={0.5} />
           <directionalLight position={[20, 20, 10]} intensity={0.9} />
           <spotLight position={[10, 15, 10]} angle={0.3} penumbra={1} intensity={0.7} />
