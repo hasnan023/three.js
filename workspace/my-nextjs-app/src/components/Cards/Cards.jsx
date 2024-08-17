@@ -51,7 +51,7 @@ const FluidShader = () => {
 
   return (
     <mesh>
-      <planeGeometry args={[19, 9]} />
+      <planeGeometry args={[19, 12]} />
       <shaderMaterial
         ref={materialRef}
         uniforms={{ time: { value: 1.0 } }}
@@ -92,12 +92,13 @@ const HeaderWithFluidAnimation = () => {
           maxWidth="1200px" // Adjust as needed
           justify="space-between"
           align="center"
+          direction={{ base: 'column', md: 'row' }} // Stack vertically on small screens
         >
           {/* Left box for text */}
           <Box flex="1" padding="1rem">
           <ReactTyped strings={["Are u tired of themes too??","Then wait and Scroll Boys.."]} typeSpeed={40} backSpeed={50} loop 
           style={{
-            fontSize: "30px",  // Adjust the font size as needed
+            fontSize: "40px",  // Adjust the font size as needed
             fontWeight: 'bold',  // Adjust the font weight as needed
             color: 'Black',  // Ensure the text color is visible against your background
           }}

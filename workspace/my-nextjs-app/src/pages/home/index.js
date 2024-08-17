@@ -5,6 +5,7 @@ import Modal from '@/components/Modal/Modal';
 import Cards from '@/components/Cards/Cards';
 import { ChakraProvider, Flex, Box } from '@chakra-ui/react';
 import ClientRibbon from '@/components/ClientRibbon/ClientRibbon';
+import Services from '@/components/Services/Services';
 
 const Index = () => {
   return (
@@ -12,6 +13,7 @@ const Index = () => {
       <Sidebar/>
       <Cards/>
       <ClientRibbon/>
+      <Services/>
       </ChakraProvider>
 
    
