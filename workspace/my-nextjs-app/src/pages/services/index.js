@@ -1,14 +1,14 @@
-import DomainChecker from "@/components/DomainChecker/DomainChecker";
-import ShopifyExpense from "@/components/ShopifyExpense/ShopifyExpense";
-import Sidebar from "@/components/Sidebar/Sidebar";
+import DomainChecker from "@/components/ServiceComp/DomainChecker/DomainChecker";
+import ShopifyExpense from "@/components/ServiceComp/ExpenseCalForms/ShopifyExpense";
+import Sidebar from "@/components/HomeComp/Sidebar/Sidebar";
 import { ChakraProvider } from "@chakra-ui/react";
+import ServiceWrapper from "@/components/ServiceComp/ServiceWrapper";
 
 const index = () => {
   return (
     <ChakraProvider>
       <Sidebar />
-      <DomainChecker />
-      <ShopifyExpense />
+      <ServiceWrapper />
     </ChakraProvider>
   );
 };

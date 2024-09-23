@@ -12,7 +12,15 @@ import {
 
 const ShopifyExpense = () => {
   return (
-    <Container centerContent py={10} mt={10} shadow="md">
+    <Container
+      borderRadius={8}
+      bg="#C7F9CC"
+      centerContent
+      py={10}
+      mt={10}
+      shadow="md"
+      maxW={{ base: "80%", md: "600px" }}
+    >
       <Text fontSize="2xl" mb={4}>
         Shopify Expense Calculator
       </Text>
@@ -86,7 +94,7 @@ const ShopifyExpense = () => {
                 />
               </FormControl>
 
-              <Button colorScheme="teal" type="submit">
+              <Button colorScheme="green" type="submit">
                 Calculate Expenses
               </Button>
             </VStack>

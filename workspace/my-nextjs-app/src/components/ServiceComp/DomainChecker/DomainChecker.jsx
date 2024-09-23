@@ -46,7 +46,7 @@ const DomainChecker = () => {
     <Box
       maxW={{ base: "80%", md: "600px" }} // Full width on small screens, 600px max on larger screens
       mx="auto"
-      mt={{ base: "50px", md: "150px" }} // Less margin on top for small screens
+      mt={{ base: "100px", md: "150px" }} // Less margin on top for small screens
       p={{ base: 3, md: 5 }} // Adjust padding based on screen size
       borderRadius="md"
       boxShadow="md"
