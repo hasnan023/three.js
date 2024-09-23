@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 import {
   Box,
   IconButton,
@@ -14,30 +14,29 @@ import {
   DrawerContent,
   Flex,
   useColorMode,
-} from '@chakra-ui/react';
-import { HamburgerIcon, CloseIcon, SunIcon, MoonIcon } from '@chakra-ui/icons';
-import { FaUser, FaCog } from 'react-icons/fa'; // Use 'react-icons/fa' for these icons
+} from "@chakra-ui/react";
+import { HamburgerIcon, CloseIcon, SunIcon, MoonIcon } from "@chakra-ui/icons";
+import { FaSun } from "react-icons/fa";
+import { FaUser, FaCog } from "react-icons/fa"; // Use 'react-icons/fa' for these icons
+import Link from "next/link";
 
 // Define the navigation items
 const navItems = [
-  { label: 'Home', href: '/' },
-  { label: 'About', href: '/about' },
-  { label: 'Services', href: '/services' },
-  { label: 'Contact', href: '/contact' },
+  { label: "Home", href: "/home" },
+  { label: "About", href: "/about" },
+  { label: "Services", href: "/services" },
+  { label: "Contact", href: "/contact" },
 ];
 
-const profileSettingsItems = [
-  { icon: <FaUser /> },
-  { icon: <FaCog /> },
-];
+const profileSettingsItems = [{ icon: <FaUser /> }, { icon: <FaCog /> }];
 
 const Sidebar = () => {
   const { isOpen, onToggle, onClose } = useDisclosure();
   const isDesktop = useBreakpointValue({ base: false, md: true });
   const { colorMode, toggleColorMode } = useColorMode();
-  
+
   // Determine icon based on color mode
-  const icon = colorMode === 'light' ? <MoonIcon /> : <SunIcon />;
+  const icon = colorMode === "light" ? <MoonIcon /> : <FaSun />;
 
   const handleToggle = () => {
     toggleColorMode();
@@ -52,16 +51,20 @@ const Sidebar = () => {
             aria-label="Open Menu"
             icon={<HamburgerIcon />}
             onClick={onToggle}
-            display={{ base: 'block', md: 'none' }} // Show this button on mobile
-            top={4}
-            left={4}
+            display={{ base: "block", md: "none" }} // Show this button on mobile
+            position="fixed" // Fix the button to the top-left
+            top="4" // Optional: Adjust to your preferred value
+            left="4"
+            zIndex="1001"
           />
           <Drawer isOpen={isOpen} onClose={onClose} placement="left">
             <DrawerOverlay>
               <DrawerContent>
                 <DrawerHeader borderBottomWidth="1px">
                   <HStack justify="space-between">
-                    <Text fontSize="lg" fontWeight="bold">Modal.Js</Text>
+                    <Text fontSize="lg" fontWeight="bold">
+                      Drip
+                    </Text>
                     <IconButton
                       aria-label="Close Menu"
                       icon={<CloseIcon />}
@@ -69,23 +72,36 @@ const Sidebar = () => {
                     />
                   </HStack>
                 </DrawerHeader>
-                <DrawerBody>
+                <DrawerBody ml={4}>
                   <VStack spacing={4} align="start">
                     {navItems.map((item) => (
-                      <Text key={item.label} fontSize="lg" fontWeight="bold">
-                        {item.label}
-                      </Text>
+                      <Link href={item.href} key={item.label} passHref>
+                        <Text
+                          as="a"
+                          fontSize="lg"
+                          fontWeight="bold"
+                          cursor="pointer"
+                          _hover={{ textDecoration: "underline" }}
+                        >
+                          {item.label}
+                        </Text>
+                      </Link>
                     ))}
                     {profileSettingsItems.map((item, index) => (
                       <HStack key={index} spacing={2}>
-                        <Box as="span" fontSize="lg">{item.icon}</Box>
+                        <Box as="span" fontSize="lg">
+                          {item.icon}
+                        </Box>
                       </HStack>
                     ))}
-                    <IconButton
+                    <div
                       aria-label="Toggle Color Mode"
                       icon={icon}
                       onClick={handleToggle}
-                    />
+                      _focus={{ outline: "none" }} // Optionally remove focus outline
+                    >
+                      {icon}
+                    </div>
                   </VStack>
                 </DrawerBody>
               </DrawerContent>
@@ -97,18 +113,22 @@ const Sidebar = () => {
       {/* Desktop Sidebar */}
       {isDesktop && (
         <Box
+          position="fixed"
+          top="7%"
+          left="50%"
+          transform="translate(-50%, -50%)"
+          borderRadius="250px"
           as="nav"
           p={4}
           display="flex"
           alignItems="center"
           justifyContent="space-between"
           boxShadow="md"
-          top={0}
-          left={0}
-          w="100%"
+          w="60%"
+          zIndex="1000" // To ensure it stays above other content
         >
-          <Text fontSize="lg" fontWeight="bold" ml={4}>
-            Modal.Js
+          <Text fontSize="lg" fontWeight="bold" mr={8}>
+            Drip
           </Text>
           <Flex
             align="center"
@@ -119,9 +139,17 @@ const Sidebar = () => {
           >
             <HStack spacing={8}>
               {navItems.map((item) => (
-                <Text key={item.label} fontSize="md" fontWeight="bold">
-                  {item.label}
-                </Text>
+                <Link href={item.href} key={item.label} passHref>
+                  <Text
+                    as="a"
+                    fontSize="md"
+                    fontWeight="bold"
+                    cursor="pointer"
+                    _hover={{ textDecoration: "underline" }}
+                  >
+                    {item.label}
+                  </Text>
+                </Link>
               ))}
             </HStack>
             <HStack spacing={8}>
@@ -130,11 +158,14 @@ const Sidebar = () => {
                   {item.icon}
                 </Box>
               ))}
-              <IconButton
+              <div
                 aria-label="Toggle Color Mode"
                 icon={icon}
                 onClick={handleToggle}
-              />
+                _focus={{ outline: "none" }} // Optionally remove focus outline
+              >
+                {icon}
+              </div>
             </HStack>
           </Flex>
         </Box>
