@@ -126,7 +126,7 @@ const HeaderWithFluidAnimation = () => {
           >
             <ambientLight intensity={0.5} />
             <directionalLight position={[10, 10, 5]} intensity={1} />
-            <Model url="/geometry2.glb" />
+            <Model url="/glbAssets/geometry2.glb" />
             <OrbitControls enableZoom={true} />
           </Canvas> */}
           </Box>
@@ -156,10 +156,10 @@ const HeaderWithFluidAnimation = () => {
               alignItems="center"
               justifyContent="center"
             >
-              <Button colorScheme="teal" variant="solid">
+              <Button colorScheme="white" variant="outline">
                 Get Consultancy
               </Button>
-              <Button colorScheme="teal" variant="outline">
+              <Button colorScheme="white" variant="outline">
                 Visit
               </Button>
             </Stack>

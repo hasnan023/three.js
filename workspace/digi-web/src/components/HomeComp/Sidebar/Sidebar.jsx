@@ -23,8 +23,8 @@ import Link from "next/link";
 // Define the navigation items
 const navItems = [
   { label: "Home", href: "/home" },
-  { label: "About", href: "/about" },
   { label: "Services", href: "/services" },
+  { label: "Our Story", href: "/goal" },
   { label: "Contact", href: "/contact" },
 ];
 

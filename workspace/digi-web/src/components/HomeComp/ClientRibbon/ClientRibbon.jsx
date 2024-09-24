@@ -9,11 +9,11 @@ const scroll = keyframes`
 
 const ClientRibbon = () => {
   const brandIcons = [
-    "/logo.png",
-    "/kover.png",
-    "/logo.png",
-    "/kover.png",
-    "/logo.png",
+    "/ImageAssets/zamsLogo.png",
+    "/ImageAssets/koverLogo.png",
+    "/ImageAssets/zamsLogo.png",
+    "/ImageAssets/koverLogo.png",
+    "/ImageAssets/zamsLogo.png",
     // Add more logos as needed
   ];
 

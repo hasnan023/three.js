@@ -103,32 +103,32 @@ const Services = () => {
         <ServiceCard
           title="Shopify Development"
           description="Custom Shopify development to build and scale your eCommerce business."
-          imageSrc="/shopify3.png"
+          imageSrc="/ImageAssets/shopifyIconImage.png"
         />
         <ServiceCard
           title="WordPress Development"
           description="Professional WordPress development for dynamic and responsive websites."
-          imageSrc="wordpress2.png"
+          imageSrc="/ImageAssets/wordpressIconImage.png"
         />
         <ServiceCard
           title="React Development"
           description="Build modern and interactive web applications using React."
-          imageSrc="https://reactjs.org/logo-og.png"
+          imageSrc="/ImageAssets/reactIconImage.png"
         />
         <ServiceCard
           title="Digital Marketing"
           description="Effective digital marketing strategies to grow your online presence."
-          imageSrc="meta.jpg"
+          imageSrc="/ImageAssets/metaIconImage.jpg"
         />
         <ServiceCard
           title="PhotoShoot"
           description="Professional photoshoots for your products or services."
-          imageSrc="c5.jpg"
+          imageSrc="/ImageAssets/photographyIconImage.jpg"
         />
         <ServiceCard
           title="Consultancy"
           description="Expert consultancy services to guide your business strategies."
-          imageSrc="c7.png"
+          imageSrc="/ImageAssets/consultancyIconImage.png"
         />
       </Grid>
     </Box>

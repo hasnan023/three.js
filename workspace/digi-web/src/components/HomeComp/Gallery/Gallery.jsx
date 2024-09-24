@@ -16,7 +16,7 @@ const Gallery = () => {
         textAlign="center"
       >
         <Image
-          src="/at3.png"
+          src="/ImageAssets/galleryImage.png"
           height={{ base: "auto", md: "500px" }} // Fit image automatically on small screens, fixed height on larger screens
           width={{ base: "100%", md: "auto" }} // Full width on small screens
           objectFit="contain" // Ensure the image fits well within its container
